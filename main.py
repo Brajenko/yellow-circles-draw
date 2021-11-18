@@ -1,4 +1,4 @@
-from PyQt5.QtGui import QPainter, QPen
+from PyQt5.QtGui import QPainter, QPen, QColor
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow
@@ -28,7 +28,8 @@ class MainWindow(QMainWindow):
             self.draw_flag = False
 
     def drawCircle(self, painter):
-        painter.setPen(QPen(Qt.yellow, 8, Qt.SolidLine))
+        r, g, b = random.sample(range(0, 255), 3)
+        painter.setPen(QPen(QColor(r, g, b), 8, Qt.SolidLine))
         pos_x = random.randrange(200, 600)
         pos_y = random.randrange(100, 400)
         d = random.randrange(100, 300)
